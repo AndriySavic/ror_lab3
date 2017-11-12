@@ -12,5 +12,15 @@ class User < ApplicationRecord
 		validates :nickname, :email, uniqueness: true
 		validates :nickname, format: { with: /\A[a-zA-Z0-9]+\Z/ }
 		validates :nickname, format: { without: /\s/ }
+
+
+
+
+
+
+
+    
   
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/default.jpg"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 end
